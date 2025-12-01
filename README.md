@@ -25,7 +25,7 @@ $$
 satisfies:
 
 $$
-|g(x) - f(x)| < \varepsilon \quad \forall x \in I_m
+\vert g(x) - f(x) \vert < \varepsilon \quad \forall x \in I_m
 $$
 
 ### Activation Functions
