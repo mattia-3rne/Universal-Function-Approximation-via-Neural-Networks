@@ -115,7 +115,7 @@ This repository contains three separate Jupyter Notebooks, each implementing the
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/mattia-3rne/Universal-Function-Approximation-via-Neural-Networks.git
+    git clone https://github.com/mattia-3rne/universal-function-approximation-via-neural-networks.git
     ```
 
 2.  **Install dependencies**:
