@@ -97,10 +97,10 @@ $$
 
 This repository contains three separate Jupyter Notebooks, each implementing the approximation using a different optimization strategy. Below is a detailed breakdown of each method used in this project.
 
-### Batch Gradient Descent (BGD)
+### Batch Gradient Descent
 
 #### Theoretical Approach
-Batch Gradient Descent distinguishes itself by computing the gradient using the **entire training dataset** $\mathcal{D}$ for every single iteration of the optimization process. This contrasts with stochastic methods that approximate the gradient using subsets of data. Given a dataset of size $N$, the algorithm calculates the exact gradient of the global cost function, ensuring the update vector points in the direction of the steepest descent for the total error surface.
+Batch Gradient Descent (BGD) distinguishes itself by computing the gradient using the **entire training dataset** $\mathcal{D}$ for every single iteration of the optimization process. This contrasts with stochastic methods that approximate the gradient using subsets of data. Given a dataset of size $N$, the algorithm calculates the exact gradient of the global cost function, ensuring the update vector points in the direction of the steepest descent for the total error surface.
 
 #### Mathematical Formulation
 
@@ -118,7 +118,7 @@ $$
 \nabla_\theta J(\theta) = \frac{1}{N} \sum_{i=1}^{N} \nabla_\theta \mathcal{L}(\hat{y}^{(i)}, y^{(i)})
 $$
 
-### Stochastic Gradient Descent (SGD)
+### Stochastic Gradient Descent
 
 #### Theoretical Approach
 Stochastic Gradient Descent (SGD) is an optimization approach where the gradient is approximated using a **single training example** $(x^{(i)}, y^{(i)})$ chosen at random for each iteration. Unlike Batch Gradient Descent, which calculates the exact gradient by averaging over the entire dataset, SGD uses the gradient of the loss from one sample as an unbiased estimator of the true gradient. This introduces noise into the optimization path, causing the loss to fluctuate, but allows for significantly more frequent parameter updates.
@@ -139,10 +139,10 @@ $$
 \nabla_\theta J(\theta) \approx \nabla_\theta \mathcal{L}(\hat{y}^{(i)}, y^{(i)})
 $$
 
-### Mini-Batch Gradient Descent (MBGD)
+### Mini-Batch Gradient Descent
 
 #### Theoretical Approach
-Mini-Batch Gradient Descent acts as a compromise between Batch Gradient Descent and Stochastic Gradient Descent. Instead of using the full dataset or a single sample, it partitions the training data into **mini-batches of size** $B$. The model computes the gradient and updates its parameters after processing each batch. This approach leverages the computational efficiency of matrix operations (like BGD) while providing the frequent updates and convergence speed of stochastic methods.
+Mini-Batch Gradient Descent (MBGD) acts as a compromise between Batch Gradient Descent and Stochastic Gradient Descent. Instead of using the full dataset or a single sample, it partitions the training data into **mini-batches of size** $B$. The model computes the gradient and updates its parameters after processing each batch. This approach leverages the computational efficiency of matrix operations (like BGD) while providing the frequent updates and convergence speed of stochastic methods.
 
 #### Mathematical Formulation
 
@@ -150,7 +150,7 @@ Mini-Batch Gradient Descent acts as a compromise between Batch Gradient Descent 
 For a specific mini-batch $\mathcal{B}$ containing $B$ samples, the cost function is the average loss over that specific subset:
 
 $$
-J_{\mathcal{B}}(\theta) = \frac{1}{B} \sum_{k=1}^{B} \mathcal{L}(\hat{y}^{(k)}, y^{(k)})
+J_{\mathcal{B}}(\theta) = \frac{1}{B} \sum_{k=1}^{B} \mathcal{L}(\hat{y}^{(k)}, y^{(k)}) = \frac{1}{2B} \sum_{k=1}^{B} (\hat{y}^{(k)} - y^{(k)})^2
 $$
 
 ##### 2. The Mini-Batch Gradient
